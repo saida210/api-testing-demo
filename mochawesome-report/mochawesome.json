@@ -1,0 +1,201 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 5,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-02-02T09:18:00.979Z",
+    "end": "2022-02-02T09:18:01.898Z",
+    "duration": 919,
+    "testsRegistered": 6,
+    "passPercent": 83.33333333333334,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7bca2315-26a5-463e-91ba-5664cd441eaf",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "POST /users",
+          "fullTitle": "POST /users",
+          "timedOut": false,
+          "duration": 0,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "var data = {\n  name: 'Test user',\n  email: 'test_user@digitalonus.com'\n};\nreturn request.post('/users').send(data) // send payload data\n.then(function (res) {\n  assert.hasAnyKeys(res.body, 'id');\n  assert.equal(res.body.name, data.name);\n  assert.equal(res.body.email, data.email);\n});",
+          "err": {
+            "message": "ReferenceError: request is not defined",
+            "estack": "ReferenceError: request is not defined\n    at Context.<anonymous> (test\\/postUsers.js:6:5)\n    at processImmediate (node:internal/timers:464:21)",
+            "diff": null
+          },
+          "uuid": "f3dbf3f6-5b89-40e0-9b5c-a458012d32ce",
+          "parentUUID": "7bca2315-26a5-463e-91ba-5664cd441eaf",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "a3c41260-21fc-4509-9d81-836b90aa5311",
+          "title": "Users API",
+          "fullFile": "C:\\Users\\saida\\api-test-demo\\test\\getUsers.js",
+          "file": "\\test\\getUsers.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET /users",
+              "fullTitle": "Users API GET /users",
+              "timedOut": false,
+              "duration": 32,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Make a GET request to the users\nrequest.get('/users').end(function (err, res) {\n  console.log(err);\n  console.log(res.body); //return request.get(\"/users\").then((res) => {\n  //expect(res.body).to.not.be.empty;\n});",
+              "err": {},
+              "uuid": "6682dc17-7f54-42d8-a035-1dcd2d825421",
+              "parentUUID": "a3c41260-21fc-4509-9d81-836b90aa5311",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET /users/:id",
+              "fullTitle": "Users API GET /users/:id",
+              "timedOut": false,
+              "duration": 273,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Make a GET request to the specific user by id \nreturn request.get('/users/1/').then(function (res) {\n  (0, _chai.expect)(res.body.id).to.be.eq(1);\n});",
+              "err": {},
+              "uuid": "826bef64-9c01-4855-9020-41a6eb10fd56",
+              "parentUUID": "a3c41260-21fc-4509-9d81-836b90aa5311",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET /users with query parameters",
+              "fullTitle": "Users API GET /users with query parameters",
+              "timedOut": false,
+              "duration": 197,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Make a GET request to the user by specifying parameters \nreturn request.get('/users&username=Samantha').then(function (res) {\n  (0, _chai.expect)(res.body.username).to.not.be[\"null\"];\n});",
+              "err": {},
+              "uuid": "5ad1ee9f-3c36-4b01-8b91-9a81c6cad563",
+              "parentUUID": "a3c41260-21fc-4509-9d81-836b90aa5311",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST /users",
+              "fullTitle": "Users API POST /users",
+              "timedOut": false,
+              "duration": 170,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Make a post request to the user to add new data\nvar data = {\n  name: \"Johny Simkoe\",\n  email: \"johnytest210@gmail.com\",\n  username: \"johnydeb\"\n};\nreturn request.post('/users').send(data).then(function (res) {\n  console.log(res.body); //expect(res.body).to.deep.include(data);\n  //expect(res.body.email).to.eq(data.email);\n  //expect(res.body.username).to.eq(data.username);\n});",
+              "err": {},
+              "uuid": "033b6505-0b22-48bc-8a56-723cef385ce9",
+              "parentUUID": "a3c41260-21fc-4509-9d81-836b90aa5311",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PUT /users/:id",
+              "fullTitle": "Users API PUT /users/:id",
+              "timedOut": false,
+              "duration": 207,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Make a put request to update the existing user data\nvar data = {\n  username: \"Malavika\",\n  email: \"malvikaayyr239@gmail.com\"\n};\nreturn request.put('/users/3').send(data).then(function (res) {\n  console.log(res.body); //expect(res.body).to.deep.include(data);\n});",
+              "err": {},
+              "uuid": "1e5cd6ae-36ea-44e2-b161-b815f72c43a4",
+              "parentUUID": "a3c41260-21fc-4509-9d81-836b90aa5311",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6682dc17-7f54-42d8-a035-1dcd2d825421",
+            "826bef64-9c01-4855-9020-41a6eb10fd56",
+            "5ad1ee9f-3c36-4b01-8b91-9a81c6cad563",
+            "033b6505-0b22-48bc-8a56-723cef385ce9",
+            "1e5cd6ae-36ea-44e2-b161-b815f72c43a4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 879,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [
+        "f3dbf3f6-5b89-40e0-9b5c-a458012d32ce"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.0.1"
+    }
+  }
+}
